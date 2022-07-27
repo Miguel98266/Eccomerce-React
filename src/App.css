@@ -1,0 +1,54 @@
+.App {
+  text-align: center;
+}
+
+.image-card{
+  width: 250px;
+  max-height: 210px;
+}
+.image-pdp{
+  width: 600px;
+  max-height: 550px;
+  
+}
+.product-name{
+   color: #000000;   
+}
+.link{
+  text-decoration: none;
+}
+.link:hover{
+  text-decoration: underline;
+}
+
+.nav-hover:hover{
+  color: rgb(226, 226, 226);
+  cursor: pointer;
+}
+
+@media (max-width: 426px ) {  
+  .image-pdp{
+    width: 400px;
+    max-height: 350px;
+  }
+}
+.model{
+  color: #afafaf;
+}
+.price{
+  font-size: 36px;
+  position: relative;
+}
+.price:after{
+  content: "Suggested price";
+  font-size: 1rem;
+  display: block;
+  position: absolute;
+  bottom: -10px;
+  line-height: 1;
+  color: #252424;
+}
+
+.description{
+  font-size: 20px;
+}
