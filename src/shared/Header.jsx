@@ -5,6 +5,7 @@ import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import { ReactComponent as Carrito } from "../assets/Carrito.svg";
 
 export default class Header extends Component {
   render() {
@@ -26,7 +27,7 @@ export default class Header extends Component {
             />
             {/* <Button variant="success">Search</Button> */}
           </Form>
-         
+          <Carrito style={{ width: "50px", height: "50px" }}/>
           <Navbar.Text className="mx-2 nav-hover">
             Sign In
           </Navbar.Text>

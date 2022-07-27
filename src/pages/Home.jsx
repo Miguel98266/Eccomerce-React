@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { ecomerceApi } from "../Api/eCommerce";
 import { Link } from "react-router-dom";
-import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import fallback  from "../assets/fallback.png";
 import { ReactComponent as Spinner } from "../assets/Spinner.svg";
-import Header from "../shared/Header";
+
 
 export const Home = () => {
   const [products, setProducts] = useState([]);
@@ -31,7 +30,7 @@ export const Home = () => {
     <>
       <div className="container d-flex flex-column gap-3 mt-5">
       {
-        loading ? <Spinner className="mx-auto" style={{ width: "200px", height: "200px" }}/> : 
+        loading ? <Spinner className="mx-auto" style={{ width: "200px", height: "200px", backgroundColor:"white" }}/> : 
         (<div className="d-flex flex-wrap gap-3 justify-content-center">
         {products.map((producto) => (
           <Card style={{ width: "18rem" }} key={producto._id}>

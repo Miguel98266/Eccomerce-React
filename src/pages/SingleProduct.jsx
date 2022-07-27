@@ -23,8 +23,13 @@ export const SingleProduct = () => {
             console.log(error);
         }
     }
+    
     useEffect(() => {
       getSingleProductData();
+    
+      return () => {
+        console.log("Sali de PDP")
+      }
     }, [])
     
 

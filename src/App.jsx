@@ -1,7 +1,7 @@
 import React from 'react'
 import { Home , SharedHeadLayout,SingleProduct } from './pages'
 import './App.css';
-import { BrowserRouter, Routes, Route,Link } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 export const App = () => {
   return (
     <BrowserRouter>
