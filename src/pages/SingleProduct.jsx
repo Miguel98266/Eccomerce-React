@@ -27,9 +27,7 @@ export const SingleProduct = () => {
     useEffect(() => {
       getSingleProductData();
     
-      return () => {
-        console.log("Sali de PDP")
-      }
+      
     }, [])
     
 
@@ -41,7 +39,7 @@ export const SingleProduct = () => {
         <Container>
       <Row>
         <Col >
-        <img className="image-pdp" src={product.image} />
+        <img className="image-pdp" src={product.image} alt={product.product_name} />
         </Col>
         <Col className="my-auto ">
             <h1>{product.product_name} </h1>
