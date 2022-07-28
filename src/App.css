@@ -25,7 +25,16 @@
   color: rgb(226, 226, 226);
   cursor: pointer;
 }
-
+.nodata{
+  width: 500px;
+  height: 500px;
+}
+@media (max-width: 426px) {  
+  .nodata{
+    width: 300px;
+    height: 300px;
+  }
+}
 @media (max-width: 426px ) {  
   .image-pdp{
     width: 380px;
