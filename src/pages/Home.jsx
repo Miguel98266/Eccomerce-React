@@ -70,7 +70,7 @@ export const Home = ({search}) => {
           </Card>
         ))}
       </div>
-      </>):search.length>0 && filterproducts.length==0?
+      </>):search.length>0 && filterproducts.length===0?
       (<>
         <Nodata className="mx-auto" style={{ width: "500px", height: "500px" }}/>
       </>)
