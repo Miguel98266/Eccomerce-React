@@ -24,6 +24,7 @@ export const Header = ({search,setSearch}) => {
             aria-label="Search"
             value={search} onChange={e=>setSearch(e.target.value)}
           />
+          
           {/* <Button variant="success">Search</Button> */}
         </Form>
         <Carrito style={{ width: "50px", height: "50px" }}/>

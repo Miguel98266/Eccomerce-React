@@ -24,11 +24,8 @@ export const SingleProduct = () => {
         }
     }
     
-    
-
     useEffect(() => {
       getSingleProductData();
-    
       // eslint-disable-next-line
     }, [])
     
@@ -46,13 +43,18 @@ export const SingleProduct = () => {
         <Col className="my-auto ">
             <h1>{product.product_name} </h1>
             <h5 className="model">MODEL: {product.brand} </h5>
+            <h6 >Category: {product.category} </h6>
             <div>
                 <p className="price">$ {product.price} </p>
               
             </div>
             <p className="description"> {product.description}</p>
             <div className="d-grid gap-2">
-                <Button variant="success" size="lg">Add to cart</Button>
+            {
+              product.isActive?<Button variant="success" size="lg">Add to cart</Button>:
+              <Button variant="secondary" size="lg" disabled>Out of stock</Button>
+            }
+                
             </div>
         </Col>
       </Row>
