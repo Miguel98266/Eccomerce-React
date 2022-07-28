@@ -21,16 +21,14 @@ export const Home = ({search}) => {
   };
   
   const filterData= ()=>{
-    setFilterproducts(products.filter(product => search.includes(product.product_name)));
+    setFilterproducts(products.filter(item => item.product_name.includes(search)));
   }
   useEffect(() => {
     getProductsData();
     filterData();
     console.log(filterproducts)
-    return () => {
-      console.log("Adios productos");
-    };
-  }, []);
+    // eslint-disable-next-line
+  }, [search]);
 
   return (
     <>
