@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Card from "react-bootstrap/Card";
 import fallback  from "../assets/fallback.png";
 import { ReactComponent as Spinner } from "../assets/Spinner.svg";
+import { ReactComponent as Nodata } from "../assets/Nodata.svg";
 
 
 export const Home = ({search}) => {
@@ -41,7 +42,7 @@ export const Home = ({search}) => {
       <div className="container d-flex flex-column gap-3 mt-5">
       {
         loading ? <Spinner className="mx-auto" style={{ width: "200px", height: "200px", backgroundColor:"white" }}/> : 
-        filterproducts.length>0?
+        search.length>0 && filterproducts.length>0 ? 
         (<>
           <h4 > {`${search} (${filterproducts.length} Results)`}  </h4>
           <div className="d-flex flex-wrap gap-3 justify-content-center">
@@ -69,8 +70,11 @@ export const Home = ({search}) => {
           </Card>
         ))}
       </div>
-      </>):
-      
+      </>):search.length>0 && filterproducts.length==0?
+      (<>
+        <Nodata className="mx-auto" style={{ width: "500px", height: "500px" }}/>
+      </>)
+      :
       (<>
         <h4> {`${products.length} Results`}  </h4>
         <div className="d-flex flex-wrap gap-3 justify-content-center">
