@@ -6,9 +6,11 @@ import fallback  from "../assets/fallback.png";
 import { ReactComponent as Spinner } from "../assets/Spinner.svg";
 
 
-export const Home = () => {
+export const Home = ({search}) => {
+  
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [filterproducts, setFilterproducts] = useState([])
 
   const getProductsData = async () => {
     setLoading(true)
@@ -18,9 +20,13 @@ export const Home = () => {
     setLoading(false)
   };
   
-
+  const filterData= ()=>{
+    setFilterproducts(products.filter(product => search.includes(product.product_name)));
+  }
   useEffect(() => {
     getProductsData();
+    filterData();
+    console.log(filterproducts)
     return () => {
       console.log("Adios productos");
     };
@@ -29,6 +35,10 @@ export const Home = () => {
   return (
     <>
       <div className="container d-flex flex-column gap-3 mt-5">
+      {search}
+      {
+        JSON.stringify(filterproducts)
+      }
       {
         loading ? <Spinner className="mx-auto" style={{ width: "200px", height: "200px", backgroundColor:"white" }}/> : 
         (<div className="d-flex flex-wrap gap-3 justify-content-center">

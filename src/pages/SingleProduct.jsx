@@ -24,10 +24,12 @@ export const SingleProduct = () => {
         }
     }
     
+    
+
     useEffect(() => {
       getSingleProductData();
     
-      
+      // eslint-disable-next-line
     }, [])
     
 
