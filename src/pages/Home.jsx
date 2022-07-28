@@ -21,25 +21,59 @@ export const Home = ({search}) => {
   };
   
   const filterData= ()=>{
-    setFilterproducts(products.filter(item => item.product_name.includes(search)));
+    if (search==='') {
+      setFilterproducts([]);
+    }else{
+      setFilterproducts(products.filter(item => item.product_name.toUpperCase().includes(search.toUpperCase())));
+      console.log(filterproducts)
+    }
+    
   }
   useEffect(() => {
     getProductsData();
     filterData();
-    console.log(filterproducts)
+    
     // eslint-disable-next-line
   }, [search]);
 
   return (
     <>
       <div className="container d-flex flex-column gap-3 mt-5">
-      {search}
-      {
-        JSON.stringify(filterproducts)
-      }
       {
         loading ? <Spinner className="mx-auto" style={{ width: "200px", height: "200px", backgroundColor:"white" }}/> : 
-        (<div className="d-flex flex-wrap gap-3 justify-content-center">
+        filterproducts.length>0?
+        (<>
+          <h4 > {`${search} (${filterproducts.length} Results)`}  </h4>
+          <div className="d-flex flex-wrap gap-3 justify-content-center">
+        {filterproducts.map((producto) => (
+          <Card style={{ width: "18rem" }} key={producto._id}>
+            <Card.Img className="image-card" variant="top" src={producto.image ? producto.image :fallback}
+              onError={(e)=>{e.target.onerror = null; e.target.src= fallback }}
+            />           
+            <Card.Body>
+            <Link className="link" to={`/${producto._id}`}>
+              <Card.Title className="text-center product-name text-truncate" > {producto.product_name} </Card.Title>
+            </Link>
+              <Card.Text className="text-truncate text-center">
+               Model: {producto.brand}
+              </Card.Text>
+              <Card.Text className="fw-bolder fs-5 text-center"  >
+               $ {producto.price}.00
+              </Card.Text>
+              <div className="d-grid gap-2">
+              <Link className="btn btn-success" to={`/${producto._id}`}>
+                View More
+              </Link>
+              </div>
+            </Card.Body>
+          </Card>
+        ))}
+      </div>
+      </>):
+      
+      (<>
+        <h4> {`${products.length} Results`}  </h4>
+        <div className="d-flex flex-wrap gap-3 justify-content-center">
         {products.map((producto) => (
           <Card style={{ width: "18rem" }} key={producto._id}>
             <Card.Img className="image-card" variant="top" src={producto.image ? producto.image :fallback}
@@ -63,7 +97,8 @@ export const Home = ({search}) => {
             </Card.Body>
           </Card>
         ))}
-      </div>)
+      </div>
+      </>)
       }
       </div>
     </>

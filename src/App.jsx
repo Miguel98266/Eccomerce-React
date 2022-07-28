@@ -3,7 +3,7 @@ import { Home , SharedHeadLayout,SingleProduct } from './pages'
 import './App.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 export const App = () => {
-  const [search, setSearch] = useState([]);
+  const [search, setSearch] = useState('');
   return (
     <BrowserRouter>
     <Routes>

@@ -9,7 +9,7 @@
 .image-pdp{
   width: 600px;
   max-height: 550px;
-  
+  background-size: cover;
 }
 .product-name{
    color: #000000;   
@@ -28,7 +28,7 @@
 
 @media (max-width: 426px ) {  
   .image-pdp{
-    width: 400px;
+    width: 380px;
     max-height: 350px;
   }
 }
